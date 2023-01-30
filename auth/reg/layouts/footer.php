@@ -9,10 +9,8 @@
     <!-- ============================================================== -->
     <!-- This page plugin js -->
     <!-- ============================================================== -->
-    <script>
-    $('[data-toggle="tooltip"]').tooltip();
-    $(".preloader").fadeOut();
-    </script>
+    <script src="../../models/js/reg-script.js"></script>
+
 </body>
 
 </html>
