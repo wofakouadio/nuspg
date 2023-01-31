@@ -15,13 +15,19 @@ $(document).ready(()=>{
         let form_data = $("#student-reg-form")[0]
 
         $.ajax({
-            url:'../../models/server/reg/student-reg.php',
-            method:'POST',
-            cache:false,
+            url        : '../../models/server/reg/student-reg.php',
+            method     : 'POST',
+            cache      : false,
             processData: false,
             contentType: false,
-            data: new FormData(form_data),
-            success:(StudentReg_Response)=>{
+            data       : new FormData(form_data),
+            beforeSend : ()=>{
+                $(".reg-alert").show().addClass("alert-primary").text("Submitting, please wait ...");
+                $(".reg-alert").removeClass("alert-warning")
+                $(".reg-alert").removeClass("alert-success")
+                $(".reg-alert").removeClass("alert-danger")
+            },
+            success    : (StudentReg_Response)=>{
                 // console.log(StudentReg_Response)
                 let student_reg = JSON.parse(StudentReg_Response)
                 if(student_reg.status == 'failed' && student_reg.error == null){

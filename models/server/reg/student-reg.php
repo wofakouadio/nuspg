@@ -95,9 +95,9 @@
 
                 $studentRecordInsert = new StudentRegistration;
 
-                $data = $studentRecordInsert->StudentReg($student_name, $student_id, $student_level, $student_program, $student_hall, $student_contact, $student_profile);
+                $response = $studentRecordInsert->StudentReg($student_name, $student_id, $student_level, $student_program, $student_hall, $student_contact, $student_profile);
 
-                $data = json_decode($data, TRUE);
+                $data = json_decode($response, TRUE);
 
                 move_uploaded_file($profile_picture_temp, $student_profile_dir . $student_profile);
 
